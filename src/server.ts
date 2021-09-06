@@ -2,8 +2,7 @@ import bodyParser from "body-parser";
 import { Express } from "express";
 import morgan from "morgan";
 //import exphbs from "express-handlebars";
-import corrs from "cors";
-//import apiRouter from "./routers/api.ts"
+import apiRouter from "./routers/index."
 import mongoConnect from "./enviroment/mongo.connect.ts";
 export class Server {
   app: Express;
@@ -12,9 +11,8 @@ export class Server {
     this.app = app;
 
     this.app.use(bodyParser.json());
-    this.app.use(corrs);
     this.app.use(morgan("dev"));
-    // this.app.use("/api", apiRouter)
+    this.app.use("/api", apiRouter)
     mongoConnect();
   }
 
